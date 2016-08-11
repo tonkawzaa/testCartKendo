@@ -1,6 +1,43 @@
-<div data-role="view" data-title="Home View" data-layout="main" data-model="app.homeView" data-show="app.homeView.onShow" data-after-show="app.homeView.afterShow">
-    <!-- START_CUSTOM_CODE_homeView -->
-    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
-    <h1 data-bind="html: title"></h1>
-    <!-- END_CUSTOM_CODE_homeView -->
+    <div  id="index" data-role="view" data-title="Home View" data-layout="main" data-model="app.homeView" data-show="app.homeView.onShow" data-after-show="app.homeView.afterShow">
+    
+        <header data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                    <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
+                </div>
+        </header>    
+        
+    <div>
+            <ul
+                id="featured"
+                class="item-list"
+                data-type="flat"
+                data-role="listview"
+                data-template="menuTemplate"
+                data-bind="source: dataSource"
+            ></ul>
+            
+    </div>   
+        
+        <footer data-role="footer">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                    
+                </div>
+        </footer>
 </div>
+
+ <script id="menuTemplate" type="text/x-kendo-template">
+            <a data-role="button"
+                data-bind="click: addToCart"
+                data-item-id="#:id#">#:kendo.toString(price, "c")#
+            </a>
+            <a
+                class="details-link"
+                data-role="listview-link"
+                href="\\#components/content/view.html?id=#:id#">
+            
+                <h2>#:name#</h2>
+                 <span class="added" data-bind="visible: ordered">Item added to cart #= data.ordered # times.</span>
+            </a>
+</script>

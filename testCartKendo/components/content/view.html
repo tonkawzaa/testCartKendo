@@ -1,0 +1,18 @@
+<div data-role="view" data-title="content" data-layout="main" data-model="app.content" data-show="app.content.onShow" data-after-show="app.content.afterShow">
+    <h1 data-bind="html: title"></h1>
+
+    
+    <a data-role="button" data-bind="events: { click: addToCart}">Order</a>
+   
+    
+    
+</div>
+
+    <script id="cartItemTemplate" type="text/x-kendo-template">
+        <a
+            class="details-link"
+            data-role="listview-link"
+            href="\#details?id=#:id#">
+            <h2>#:name# (x #:ordered#)</h2>
+        </a>
+    </script>
